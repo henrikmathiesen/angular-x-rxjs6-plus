@@ -1,1 +1,18 @@
-<h2>Understanding and creating observables</h2>
+<h2>Understanding and creating Observables</h2>
+<p>
+    An <mark>Observable</mark> is a representation of any set of values over any amount of time.
+</p>
+<h3>Observers</h3>
+<p>
+    An <mark>Observer</mark> is observing the data the Observable produces. They implement the observer interface,
+    which has the methods <mark>next() , error() and complete()</mark>
+</p>
+<p>
+    The methods corresponds to the 3 types of messages an Observable can produce:
+    They push the next value in the data stream to their observer with next, 
+    if the get an error they call the error message and when done producing values they call complete.
+</p>
+<h3>Subscribers</h3>
+<p>
+    Objects that want to recieve values from an Observable are passed to a method named subscribe()
+</p>
