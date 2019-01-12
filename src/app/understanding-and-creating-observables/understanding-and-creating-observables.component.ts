@@ -30,7 +30,7 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
             for (const book of allBooks) {
 
                 if (book.title === 'The Hobbit') {
-                    // Once error or complete is called, no new values will be produces
+                    // Once error or complete is called, no new values will be produced
                     // Dont need to call complete if error is called
                     // subscriber.error('Error: Book Title');
                     // return () => console.log('Tear down code that will run after complete or error is called');
