@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Observer } from 'rxjs';
+import { Observable, Observer, of, from, fromEvent, concat } from 'rxjs';
 
-import { allBooks } from 'app/data';
-import { BookModel } from 'app/models/book.model';
+import { allBooks, allReaders } from 'app/data';
+import { BookModel } from 'app/models';
 
 @Component({
     templateUrl: './understanding-and-creating-observables.component.html'
@@ -12,7 +12,7 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
     /*
         There are 3 primary ways to create Observables (the last 2 are the most common)
             - Observable constructor
-            - Via a function to create an Observable from an array or a promise
+            - Via a function to create an Observable from existing data, like an array or a promise
             - Calling a function that returns an Observable in a library we are using
 
         Side note
@@ -21,6 +21,7 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
 
     ngOnInit() {
         this.usingTheObservableConstructor();
+        this.createObservableFromExistingData();
     }
 
     private usingTheObservableConstructor() {
@@ -49,6 +50,28 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
         // When executing subscribe here, we are really executing the subscribe function above
         // The function book => ... is passed the values produced by the Observable
         allBooksObservable$.subscribe(book => console.log(book));
+    }
+
+    private createObservableFromExistingData() {
+        // of() is very flexible, provide a comma seperated list of values
+        
+        const source01$ = of('hello', 10, true, allReaders[0].name);
+        const source02$ = of(allReaders)
+        
+        source01$.subscribe(v => console.log(v));
+        source02$.subscribe(v => console.log(v));
+
+        // from() , similar to of but pass it an object than encapsulate a group of values
+        // it could be another Observable, a promise or an array (it will produce the individual values from the array)
+
+        const source03$ = from(allReaders);
+        source03$.subscribe(v => console.log(v));
+
+        // combine Observables
+        // it accepts the same arguments as the from() function
+        // we chain subscribe directly to the function, we can always do that to functions that return an Observable
+        concat(source01$, source03$)
+            .subscribe(v => console.log(v));
     }
 
 }

@@ -1,6 +1,6 @@
-import { BookModel } from 'app/models/book.model';
+import { BookModel, ReaderModel } from './models'
 
-export const allReaders = [
+export const allReaders: ReaderModel[] = [
     { readerID: 1, name: 'Marie', weeklyReadingGoal: 400, totalMinutesRead: 5600 },
     { readerID: 2, name: 'Daniel', weeklyReadingGoal: 210, totalMinutesRead: 3000 },
     { readerID: 3, name: 'Lanier', weeklyReadingGoal: 140, totalMinutesRead: 600 }
