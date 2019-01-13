@@ -54,10 +54,10 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
 
     private createObservableFromExistingData() {
         // of() is very flexible, provide a comma seperated list of values
-        
+
         const source01$ = of('hello', 10, true, allReaders[0].name);
-        const source02$ = of(allReaders)
-        
+        const source02$ = of(allReaders);
+
         source01$.subscribe(v => console.log(v));
         source02$.subscribe(v => console.log(v));
 

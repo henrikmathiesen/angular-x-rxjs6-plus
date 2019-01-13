@@ -1,4 +1,4 @@
-import { BookModel, ReaderModel } from './models'
+import { BookModel, ReaderModel } from './models';
 
 export const allReaders: ReaderModel[] = [
     { readerID: 1, name: 'Marie', weeklyReadingGoal: 400, totalMinutesRead: 5600 },
