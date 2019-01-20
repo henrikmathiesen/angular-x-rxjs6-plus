@@ -13,7 +13,9 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
         There are 3 primary ways to create Observables (the last 2 are the most common)
             - Observable constructor
             - Via a function to create an Observable from existing data, like an array or a promise
-            - Calling a function that returns an Observable in a library we are using
+            - Calling a function that returns an Observable in a library we are using (not demoed here)
+
+        We can also handle events (like click events)
 
         Side note
             - In version 6 there are fewer locations from where to import different parts of RXJS
@@ -22,6 +24,9 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
     ngOnInit() {
         this.usingTheObservableConstructor();
         this.createObservableFromExistingData();
+        // TODO promise
+
+        this.handleAnEvent();
     }
 
     private usingTheObservableConstructor() {
@@ -59,7 +64,7 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
         const source02$ = of(allReaders);
 
         source01$.subscribe(v => console.log(v));
-        source02$.subscribe(v => console.log(v));
+        source02$.subscribe(v => console.log(v)); // will log the array
 
         // from() , similar to of but pass it an object than encapsulate a group of values
         // it could be another Observable, a promise or an array (it will produce the individual values from the array)
@@ -72,6 +77,21 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
         // we chain subscribe directly to the function, we can always do that to functions that return an Observable
         concat(source01$, source03$)
             .subscribe(v => console.log(v));
+    }
+
+    private handleAnEvent() {
+        const button = document.getElementById('readersButton');
+        const readers = document.getElementById('readers');
+
+        // it returns an Observable
+        fromEvent(button, 'click')
+            .subscribe((event) => { 
+                console.log(event);
+
+                for(const r of allReaders) {
+                    readers.innerHTML += `<li>${r.name}</li>`;
+                }
+            });
     }
 
 }
