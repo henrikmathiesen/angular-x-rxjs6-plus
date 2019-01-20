@@ -85,10 +85,10 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
 
         // it returns an Observable
         fromEvent(button, 'click')
-            .subscribe((event) => { 
+            .subscribe((event) => {
                 console.log(event);
 
-                for(const r of allReaders) {
+                for (const r of allReaders) {
                     readers.innerHTML += `<li>${r.name}</li>`;
                 }
             });
