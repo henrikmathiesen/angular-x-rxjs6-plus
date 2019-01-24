@@ -24,7 +24,7 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
 
     ngOnInit() {
         this.usingTheObservableConstructor();                                                                   // 1
-        this.createObservableFromExistingData();                                                                // 2                                                            
+        this.createObservableFromExistingData();                                                                // 2
         this.createObservableFromAjaxRequest();                                                                 // 3
         this.handleAnEvent();                                                                                   // 4
     }
@@ -101,7 +101,7 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
 
     private createObservableFromAjaxRequest() {
         const url = 'https://jsonplaceholder.typicode.com/todos/1';
-        
+
         ajax(url).subscribe(v => console.log(v.response));              // One way of doing it
         ajax.getJSON(url).subscribe(v => console.log(v));               // Another way of doing it
     }
