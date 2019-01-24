@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Observer, of, from, fromEvent, concat } from 'rxjs';
+import { ajax } from 'rxjs/ajax';
 
 import { allBooks, allReaders } from 'app/data';
 import { BookModel } from 'app/models';
@@ -10,23 +11,22 @@ import { BookModel } from 'app/models';
 export class UnderstandingAndCreatingObservablesComponent implements OnInit {
 
     /*
-        There are 3 primary ways to create Observables (the last 2 are the most common)
-            - Observable constructor
-            - Via a function to create an Observable from existing data, like an array or a promise
+        There are multiple ways to create Observables
+            - Observable constructor                                                                            // 1
+            - Via a function to create an Observable from existing data, like an array or a promise             // 2
+            - Via a function to create an Observable from an Ajax request                                       // 3
             - Calling a function that returns an Observable in a library we are using (not demoed here)
-
-        We can also handle events (like click events)
+            - We can also handle events (like click events)                                                     // 4
 
         Side note
             - In version 6 there are fewer locations from where to import different parts of RXJS
     */
 
     ngOnInit() {
-        this.usingTheObservableConstructor();
-        this.createObservableFromExistingData();
-        // TODO promise
-
-        this.handleAnEvent();
+        this.usingTheObservableConstructor();                                                                   // 1
+        this.createObservableFromExistingData();                                                                // 2                                                            
+        this.createObservableFromAjaxRequest();                                                                 // 3
+        this.handleAnEvent();                                                                                   // 4
     }
 
     private usingTheObservableConstructor() {
@@ -58,7 +58,7 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
     }
 
     private createObservableFromExistingData() {
-        // of() is very flexible, provide a comma seperated list of values
+        // # of() is very flexible, provide a comma seperated list of values
 
         const source01$ = of('hello', 10, true, allReaders[0].name);
         const source02$ = of(allReaders);
@@ -66,15 +66,20 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
         source01$.subscribe(v => console.log(v));
         source02$.subscribe(v => console.log(v)); // will log the array
 
-        // from() , similar to of but pass it an object than encapsulate a group of values
+        // # from() , similar to of but pass it an object than encapsulate a group of values
         // it could be another Observable, a promise or an array (it will produce the individual values from the array)
 
         const source03$ = from(allReaders);
         source03$.subscribe(v => console.log(v));
 
-        // combine Observables
+        // use from() to convert a promise to an Observable
+        const prom = Promise.resolve('promises are promises');
+        from(prom).subscribe(v => console.log(v));
+
+        // # combine Observables
         // it accepts the same arguments as the from() function
         // we chain subscribe directly to the function, we can always do that to functions that return an Observable
+
         concat(source01$, source03$)
             .subscribe(v => console.log(v));
     }
@@ -92,6 +97,13 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
                     readers.innerHTML += `<li>${r.name}</li>`;
                 }
             });
+    }
+
+    private createObservableFromAjaxRequest() {
+        const url = 'https://jsonplaceholder.typicode.com/todos/1';
+        
+        ajax(url).subscribe(v => console.log(v.response));              // One way of doing it
+        ajax.getJSON(url).subscribe(v => console.log(v));               // Another way of doing it
     }
 
 }
