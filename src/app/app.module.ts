@@ -7,7 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 
 import { ReactiveProgrammingBasicsComponent } from './reactive-programming-basics/reactive-programming-basics.component';
 import { UnderstandingAndCreatingObservablesComponent } from './understanding-and-creating-observables/understanding-and-creating-observables.component';
-import { ManagingSubscriptionsWithObserversComponent } from './manging-subscriptions-with-observers/manging-subscriptions-with-observers.component';
+import { ManagingSubscriptionsWithObserversComponent } from './managing-subscriptions-with-observers/managing-subscriptions-with-observers.component';
 import { UsingOperatorsComponent } from './using-operators/using-operators.component';
 import { CreatingOurOwnOperatorsComponent } from './creating-our-own-operators/creating-our-own-operators.component';
 import { SubjectsAndMulticastedObservablesComponent } from './subjects-and-multicasted-observables/subjects-and-multicasted-observables.component';

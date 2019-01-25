@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observer, of, Observable } from 'rxjs';
 
 @Component({
-    templateUrl: './manging-subscriptions-with-observers.component.html'
+    templateUrl: './managing-subscriptions-with-observers.component.html'
 })
 export class ManagingSubscriptionsWithObserversComponent implements OnInit {
 
