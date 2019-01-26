@@ -7,7 +7,7 @@ import { ManagingSubscriptionsWithObserversComponent } from './managing-subscrip
 import { UsingOperatorsComponent } from './using-operators/using-operators.component';
 import { CreatingOurOwnOperatorsComponent } from './creating-our-own-operators/creating-our-own-operators.component';
 import { SubjectsAndMulticastedObservablesComponent } from './subjects-and-multicasted-observables/subjects-and-multicasted-observables.component';
-import { TypeaheadSearchInObjectsComponent } from './typeahead-search-in-objects/typeahead-search-in-objects.component';
+import { TypeaheadSearchInObjectsComponent } from './other/typeahead-search-in-objects/typeahead-search-in-objects.component';
 
 const routes: Routes = [
   {
