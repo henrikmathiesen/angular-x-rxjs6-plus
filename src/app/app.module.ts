@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { ManagingSubscriptionsWithObserversComponent } from './managing-subscrip
 import { UsingOperatorsComponent } from './using-operators/using-operators.component';
 import { CreatingOurOwnOperatorsComponent } from './creating-our-own-operators/creating-our-own-operators.component';
 import { SubjectsAndMulticastedObservablesComponent } from './subjects-and-multicasted-observables/subjects-and-multicasted-observables.component';
+import { TypeaheadSearchInObjectsComponent } from './typeahead-search-in-objects/typeahead-search-in-objects.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,14 @@ import { SubjectsAndMulticastedObservablesComponent } from './subjects-and-multi
     ManagingSubscriptionsWithObserversComponent,
     UsingOperatorsComponent,
     CreatingOurOwnOperatorsComponent,
-    SubjectsAndMulticastedObservablesComponent
+    SubjectsAndMulticastedObservablesComponent,
+    TypeaheadSearchInObjectsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
+
   ],
   bootstrap: [AppComponent]
 })
