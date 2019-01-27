@@ -13,7 +13,6 @@ export class TypeaheadSearchInObjectsComponent implements OnInit {
   model: string;
   adresses: AdressModel[] = [];
 
-
   constructor(
     private adressesService: AdressesService
   ) {
@@ -24,6 +23,9 @@ export class TypeaheadSearchInObjectsComponent implements OnInit {
     this.adresses = this.adressesService.getAdresses();
   }
 
+  // https://ng-bootstrap.github.io/#/components/typeahead/examples
+  // https://ng-bootstrap.github.io/#/components/typeahead/api
+  // Maybee delegate this to a service
   search(text$: Observable<string>) {
     return text$.pipe(
       debounceTime(200),
@@ -45,5 +47,9 @@ export class TypeaheadSearchInObjectsComponent implements OnInit {
         return matches.slice(0, 10);
       })
     );
+  }
+
+  searchResultFormatter(result: AdressModel) {
+    return `${result.street}, ${result.city}`;
   }
 }
