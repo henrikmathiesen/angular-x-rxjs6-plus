@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { allBooks } from 'app/data';
 
 @Component({
   templateUrl: './reactive-programming-basics.component.html'
@@ -17,6 +18,12 @@ export class ReactiveProgrammingBasicsComponent implements OnInit {
     // Promise
     const prom = Promise.resolve('promises are promises');
     prom.then(v => console.log(v));
+
+    // Loop
+    for (let book of allBooks) {
+      console.log(book.title);
+    }
+
 
     // Click event
     const selector = document.querySelector('.js-click-me');
