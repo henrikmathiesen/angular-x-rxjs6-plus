@@ -12,7 +12,7 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
 
     /*
         There are multiple ways to create Observables
-            - Observable constructor                                                                            // 1
+            - Observable constructor or create method                                                           // 1
             - Via a function to create an Observable from existing data, like an array or a promise             // 2
             - Via a function to create an Observable from an Ajax request                                       // 3
             - Calling a function that returns an Observable in a library we are using (not demoed here)
@@ -49,7 +49,8 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
             return () => console.log('Tear down code that will run after complete or error is called');
         };
 
-        // can also use Observable.create(subscribe)
+        // can also use: Observable.create(subscribe)
+        // or an inline function: Observable.create(subscriber => { subscriber.next() })
         const allBooksObservable$ = new Observable(subscribe);
 
         // When executing subscribe here, we are really executing the subscribe function above
@@ -84,6 +85,13 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
             .subscribe(v => console.log(v));
     }
 
+    private createObservableFromAjaxRequest() {
+        const url = 'https://jsonplaceholder.typicode.com/todos/1';
+
+        ajax(url).subscribe(v => console.log(v.response));              // One way of doing it
+        ajax.getJSON(url).subscribe(v => console.log(v));               // Another way of doing it
+    }
+
     private handleAnEvent() {
         const button = document.getElementById('readersButton');
         const readers = document.getElementById('readers');
@@ -97,13 +105,6 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
                     readers.innerHTML += `<li>${r.name}</li>`;
                 }
             });
-    }
-
-    private createObservableFromAjaxRequest() {
-        const url = 'https://jsonplaceholder.typicode.com/todos/1';
-
-        ajax(url).subscribe(v => console.log(v.response));              // One way of doing it
-        ajax.getJSON(url).subscribe(v => console.log(v));               // Another way of doing it
     }
 
 }
