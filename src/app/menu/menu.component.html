@@ -1,43 +1,62 @@
-<h2>Content</h2>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Content</h2>
 
-<p>
-    This will cover all major features of RXJS.
-</p>
+        <p>
+            This will cover all major features of RXJS.
+        </p>
 
-<nav>
-    <ul>
-        <li>
-            <a [routerLink]="['/reactive-programming-basics']">Reactive Programming Basics</a>
-        </li>
-        <li>
-            <a [routerLink]="['/understanding-and-creating-observables']">Understanding and creating Observables</a>
-        </li>
-        <li>
-            <a [routerLink]="['/managing-subscriptions-with-observers']">Managing Subscriptions with Observers</a>
-        </li>
-        <li>
-            <a [routerLink]="['/using-operators']">Using operators</a>
+        <nav>
             <ul>
-                <li>pipe vs no pipe (when to use operator?) (see also angular docs about rxjs)</li>
-                <li>concat vs concatMap</li>
-                <li>concat vs forkJoin vs merge</li>
-                <li>Error handling (see link in my-app)</li>
+                <li>
+                    <a [routerLink]="['/reactive-programming-basics']">Reactive Programming Basics</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/understanding-and-creating-observables']">Understanding and creating
+                        Observables</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/managing-subscriptions-with-observers']">Managing Subscriptions with
+                        Observers</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/using-operators']">Using operators</a>
+                    <ul>
+                        <li>pipe vs no pipe (when to use operator?) (see also angular docs about rxjs)</li>
+                        <li>concat vs concatMap</li>
+                        <li>concat vs forkJoin vs merge</li>
+                        <li>Error handling (see link in my-app)</li>
+                    </ul>
+                </li>
+                <li>
+                    <a [routerLink]="['/creating-our-own-operators']">Creating our own operators</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/subjects-and-multicasted-observables']">Subjects and multicasted Observables</a>
+                </li>
+                <li>
+                    Other
+                    <ul>
+                        <li><a [routerLink]="['/typeahead-search-in-objects']">Typeahead search in objects</a></li>
+                    </ul>
+                </li>
             </ul>
-        </li>
-        <li>
-            <a [routerLink]="['/creating-our-own-operators']">Creating our own operators</a>
-        </li>
-        <li>
-            <a [routerLink]="['/subjects-and-multicasted-observables']">Subjects and multicasted Observables</a>
-        </li>
-        <li>
-            Other
-            <ul>
-                <li><a [routerLink]="['/typeahead-search-in-objects']">Typeahead search in objects</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
-
+        </nav>
+    </div>
+    <div class="col-md-6">
+        <h2>Docs</h2>
+        <ul>
+            <li>
+                <a href="https://github.com/ReactiveX/rxjs">https://github.com/ReactiveX/rxjs</a>
+            </li>
+            <li>
+                <a href="https://angular.io/guide/rx-library">https://angular.io/guide/rx-library</a>
+            </li>
+            <li>
+                <a href="https://www.learnrxjs.io/">https://www.learnrxjs.io/</a>
+            </li>
+        </ul>
+    </div>
+</div>
 
 <hr>
