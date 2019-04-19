@@ -52,4 +52,8 @@ export class TypeaheadSearchInObjectsComponent implements OnInit {
   searchResultFormatter(result: AdressModel) {
     return `${result.street}, ${result.city}`;
   }
+
+  checkModel() {
+    console.log(this.model);
+  }
 }

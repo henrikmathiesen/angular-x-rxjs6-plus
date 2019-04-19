@@ -3,7 +3,7 @@
         <h2>Typeahead search in objects</h2>
         <div class="form-group">
             <!-- 1) One way of doing it with a resultFormatter -->
-            <input type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [resultFormatter]="searchResultFormatter" />
+            <input type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [resultFormatter]="searchResultFormatter" [inputFormatter]="searchResultFormatter" />
 
             <!-- 2) Another way of doing it with template, [resultFormatter] is ignored so we dont use it -->
             <!-- <input type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [resultTemplate]="rt" /> -->
@@ -13,5 +13,10 @@
                 [IKON] {{ r.street }} {{ r.city }}
                 <ngb-highlight [result]="r.street + ', ' + r.city" [term]="t"></ngb-highlight>
             </ng-template> -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <button type="button" (click)="checkModel()">Check model</button>
     </div>
 </div>
