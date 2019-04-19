@@ -7,8 +7,6 @@ import { ManagingSubscriptionsWithObserversComponent } from './managing-subscrip
 import { CreatingOurOwnOperatorsComponent } from './creating-our-own-operators/creating-our-own-operators.component';
 import { SubjectsAndMulticastedObservablesComponent } from './subjects-and-multicasted-observables/subjects-and-multicasted-observables.component';
 
-import { TypeaheadSearchInObjectsComponent } from './other';
-
 const routes: Routes = [
   {
     path: 'reactive-programming-basics',
@@ -29,10 +27,6 @@ const routes: Routes = [
   {
     path: 'subjects-and-multicasted-observables',
     component: SubjectsAndMulticastedObservablesComponent
-  },
-  {
-    path: 'typeahead-search-in-objects',
-    component: TypeaheadSearchInObjectsComponent
   }
 ];
 
