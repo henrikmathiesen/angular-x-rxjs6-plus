@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observer, of, Observable, interval, Subscription } from 'rxjs';
 // import { allBooks, allReaders } from '../data';
 
 @Component({
     templateUrl: './managing-subscriptions-with-observers.component.html'
 })
-export class ManagingSubscriptionsWithObserversComponent implements OnInit {
+export class ManagingSubscriptionsWithObserversComponent implements OnInit, OnDestroy {
 
     timesSubscription: Subscription;
 
@@ -20,6 +20,10 @@ export class ManagingSubscriptionsWithObserversComponent implements OnInit {
 
         // Canceling with Unsubscribe
         this.unsubscribe();
+    }
+
+    ngOnDestroy() { 
+        this.unSub();
     }
 
     // #region Observer Basics
