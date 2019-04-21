@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { of } from 'rxjs';
-import { map, filter } from 'rxjs/operators';
+import { ajax } from 'rxjs/ajax';
+import { map, filter, tap, mergeMap } from 'rxjs/operators';
 
 @Component({
     templateUrl: './using-operators.component.html'
@@ -17,6 +18,7 @@ export class UsingOperatorsComponent implements OnInit {
     ngOnInit() {
         this.manuallyApplyingOperators();
         this.usingPipes();                                              // Much easier syntax
+        this.usingCommonOperators();
     }
 
     private manuallyApplyingOperators() {
@@ -62,7 +64,35 @@ export class UsingOperatorsComponent implements OnInit {
             filter(v => v >= 5)
         )
             .subscribe(v => console.log('using pipes: ' + v)); // 6, 8, 10 (first values are doubled, then filtered)
+    }
 
+    private usingCommonOperators() {
+        const url = 'https://jsonplaceholder.typicode.com/todos';
 
+        ajax(url)
+            .pipe(
+                mergeMap(v => v.response),
+                tap((v: any) => console.log(v.completed)),
+                filter((v: any) => v.completed === true),
+                // map(({ title, completed }) => ({ title, completed })) , untyped
+                map((v: { title: string, completed: boolean }) => ({ title: v.title, completed: v.completed })), // typed
+            )
+            .subscribe(v => console.log(v));
+
+        // mergeMap flattens the response
+        // We could have used ajax.getJSON (see understanding-and-creating-observables) to get directly to the response object
+        // Also flatMap is an alias for mergeMap
+
+        // tap is usefull for listening on the values, before and after transformations...
+
+        /* 
+            For several xxxMap operators there is a xxx operator, for example mergeMap and merge
+            These are deprecated in favour for the static versions, which are imported from 'rxjs'
+            import { merge } from 'rxjs';
+            import { mergeMap } from 'rxjs/operators';
+
+            I dont know what the differences are ...
+            But xxxMap seams to be operators that transforms/manipulate in some way
+        */
     }
 }
