@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { of, throwError } from 'rxjs';
+import { of, throwError, Observable } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
-import { map, filter, tap, mergeMap, catchError } from 'rxjs/operators';
+import { map, filter, tap, mergeMap, catchError, take, takeUntil } from 'rxjs/operators';
 
 @Component({
     templateUrl: './using-operators.component.html'
@@ -20,6 +20,7 @@ export class UsingOperatorsComponent implements OnInit {
         this.usingPipes();                                              // Much easier syntax than manually applying
         this.usingCommonOperators();
         this.errorHandling();
+        this.controllingTheNumberOfValues();
     }
 
     private manuallyApplyingOperators() {
@@ -98,7 +99,7 @@ export class UsingOperatorsComponent implements OnInit {
     }
 
     private errorHandling() {
-        const url = 'https://jsonplaceholder.typicode.com/todosxxx';
+        const url = 'https://jsonplaceholder.typicode.com/todos';
 
         ajax(url)
             .pipe(
@@ -106,7 +107,7 @@ export class UsingOperatorsComponent implements OnInit {
                     // caught is the Observable causing the error, if we return caught, the logic will try again (could be handy?)
 
                     console.log('CATCH ERROR: ' + e, caught);
-                    
+
                     // This is a recover and will make the success callback run
                     // return of({ response: [ { title: 'foo' } ] });
 
@@ -136,5 +137,38 @@ export class UsingOperatorsComponent implements OnInit {
                 - catchError, run logic for displaying message panel, then return of(null) or something similar to not trigger Global Error Handler
 
         */
+    }
+
+    private controllingTheNumberOfValues() {
+        const timer$ = new Observable(subscriber => {
+            let i = 0;
+
+            const intervalId = setInterval(() => {
+                subscriber.next(i++);
+            }, 1000);
+
+            return () => {
+                console.log('CLEARING INTERVAL');
+                clearInterval(intervalId);
+            }
+        });
+
+        const sub = timer$
+            .pipe(
+                take(2)
+                // takeUntil() , can send in for example fromEvent(selector, 'click')
+            )
+            .subscribe(
+                v => console.log('TIMER: ' + v),
+                null,
+                () => console.log('all done')
+            );
+
+        // This will unsubscribe AND clearing the interval, but done callback will NOT run
+        // setTimeout(() => {
+        //     sub.unsubscribe();
+        // }, 5000);
+
+        // take() will take an ammount of values, clearing interval AND done callback will run
     }
 }
