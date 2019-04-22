@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
-import { map, filter, tap, mergeMap } from 'rxjs/operators';
+import { map, filter, tap, mergeMap, catchError } from 'rxjs/operators';
 
 @Component({
     templateUrl: './using-operators.component.html'
@@ -17,8 +17,9 @@ export class UsingOperatorsComponent implements OnInit {
 
     ngOnInit() {
         this.manuallyApplyingOperators();
-        this.usingPipes();                                              // Much easier syntax
+        this.usingPipes();                                              // Much easier syntax than manually applying
         this.usingCommonOperators();
+        this.errorHandling();
     }
 
     private manuallyApplyingOperators() {
@@ -93,6 +94,47 @@ export class UsingOperatorsComponent implements OnInit {
 
             I dont know what the differences are ...
             But xxxMap seams to be operators that transforms/manipulate in some way
+        */
+    }
+
+    private errorHandling() {
+        const url = 'https://jsonplaceholder.typicode.com/todosxxx';
+
+        ajax(url)
+            .pipe(
+                catchError((e, caught) => {
+                    // caught is the Observable causing the error, if we return caught, the logic will try again (could be handy?)
+
+                    console.log('CATCH ERROR: ' + e, caught);
+                    
+                    // This is a recover and will make the success callback run
+                    // return of({ response: [ { title: 'foo' } ] });
+
+                    // Can throw error with vanilla javascript, this will make the error callback run
+                    // throw 'Something bad happened: ' + e;
+
+                    // Behaves the same as throw
+                    return throwError(e);
+                })
+            )
+            .subscribe(
+                v => console.log('SUCCESS CALLBACK: ' + v.response[0].title),
+                e => console.log('ERROR CALLBACK: ' + e)
+            );
+
+        /*
+
+            Workflow (perhaps):
+                - Can log to database in error callback / redirect to error page / show error panel
+                - Or log to database in catchError and return some form of data that the success callback can process
+
+            With Angular Global Error Handler
+                - Log to database in it and redirect to error page
+                - No need for catchError nor error callback here
+
+            With Angular Global Error Handler and wanting to display a special message panel for one specific error
+                - catchError, run logic for displaying message panel, then return of(null) or something similar to not trigger Global Error Handler
+
         */
     }
 }
