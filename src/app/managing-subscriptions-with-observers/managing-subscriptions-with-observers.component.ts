@@ -22,7 +22,7 @@ export class ManagingSubscriptionsWithObserversComponent implements OnInit, OnDe
         this.unsubscribe();
     }
 
-    ngOnDestroy() { 
+    ngOnDestroy() {
         this.unSub();
     }
 

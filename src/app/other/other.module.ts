@@ -4,10 +4,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { OtherRoutingModule } from './other-routing.module';
 import { TypeaheadSearchInObjectsComponent } from './typeahead-search-in-objects/typeahead-search-in-objects.component';
+import { PromiseAllInRxjsComponent } from './promise-all-in-rxjs/promise-all-in-rxjs.component';
 
 @NgModule({
     declarations: [
-        TypeaheadSearchInObjectsComponent
+        TypeaheadSearchInObjectsComponent,
+        PromiseAllInRxjsComponent
     ],
     imports: [
         FormsModule,

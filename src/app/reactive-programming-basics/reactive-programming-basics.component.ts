@@ -20,7 +20,7 @@ export class ReactiveProgrammingBasicsComponent implements OnInit {
     prom.then(v => console.log(v));
 
     // Loop
-    for (let book of allBooks) {
+    for (const book of allBooks) {
       console.log(book.title);
     }
 

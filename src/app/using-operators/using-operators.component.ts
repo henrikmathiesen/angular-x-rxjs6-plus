@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { of, throwError, Observable } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
-import { map, filter, tap, mergeMap, catchError, take, takeUntil } from 'rxjs/operators';
+import { map, filter, tap, mergeMap, catchError, take } from 'rxjs/operators'; // takeUntil
 
 @Component({
     templateUrl: './using-operators.component.html'
@@ -9,10 +9,8 @@ import { map, filter, tap, mergeMap, catchError, take, takeUntil } from 'rxjs/op
 export class UsingOperatorsComponent implements OnInit {
 
     /*
-    
         Operators are functions that takes some configuration information and return functions
         The function returned takes an Observable as a parameter and returns a new Observable
-    
     */
 
     ngOnInit() {
@@ -46,8 +44,7 @@ export class UsingOperatorsComponent implements OnInit {
     }
 
     private usingPipes() {
-        /* 
-            
+        /*
             Old syntax before RXJS 5.5
 
             const source$ = of(1, 2, 3, 4, 5);
@@ -56,7 +53,6 @@ export class UsingOperatorsComponent implements OnInit {
                 .map(v => v * 2)
                 .anotherOperator(...)
                 .subscribe(v => console.log(v));
-
         */
 
         const source$ = of(1, 2, 3, 4, 5);
@@ -87,7 +83,7 @@ export class UsingOperatorsComponent implements OnInit {
 
         // tap is usefull for listening on the values, before and after transformations...
 
-        /* 
+        /*
             For several xxxMap operators there is a xxx operator, for example mergeMap and merge
             These are deprecated in favour for the static versions, which are imported from 'rxjs'
             import { merge } from 'rxjs';
@@ -150,7 +146,7 @@ export class UsingOperatorsComponent implements OnInit {
             return () => {
                 console.log('CLEARING INTERVAL');
                 clearInterval(intervalId);
-            }
+            };
         });
 
         const sub = timer$
