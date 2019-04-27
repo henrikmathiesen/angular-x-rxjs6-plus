@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TypeaheadSearchInObjectsComponent } from './typeahead-search-in-objects/typeahead-search-in-objects.component';
 import { PromiseAllInRxjsComponent } from './promise-all-in-rxjs/promise-all-in-rxjs.component';
+import { CatchPromiseComponent } from './catch-promise/catch-promise.component';
 
 const routes: Routes = [
     {
@@ -20,6 +21,10 @@ const routes: Routes = [
             {
                 path: 'promise-all-in-rxjs',
                 component: PromiseAllInRxjsComponent
+            },
+            {
+                path: 'catch-in-promise',
+                component: CatchPromiseComponent
             }
         ]
     },

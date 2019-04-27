@@ -86,5 +86,7 @@ export class PromiseAllInRxjsComponent implements OnInit {
             null,
             () => console.log('complete successfully, navigate...')
         );
+
+        // Could be something...
     }
 }
