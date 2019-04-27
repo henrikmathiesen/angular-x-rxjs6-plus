@@ -16,6 +16,12 @@ export class PromiseAllInRxjsComponent implements OnInit {
         // this.tryingConcat();
         // this.tryingConcatMap();
         // this.tryingConcatWithLoop();
+
+        // this.tryingMerge();
+        // this.tryingMergeWithLoop();
+
+        // The problem with the above is that I want to run a callback when ALL is done
+        // We can however use the complete callback (it will NOT run if error)
     }
 
     private tryingConcat() {
@@ -51,6 +57,34 @@ export class PromiseAllInRxjsComponent implements OnInit {
         }
 
         concat(...sources).subscribe(console.log);
+    }
 
+    private tryingMerge() {
+        const source1$ = ajax.getJSON(this.url1);
+        const source2$ = ajax.getJSON(this.url2);
+
+        merge(source1$, source2$).subscribe(
+            console.log,
+            e => console.log(e),
+            () => console.log('complete')
+        );
+
+        // The ajax calls run in parallell. Subscribe callback runs 2 times. Order can be mixed.
+        // can send in an argument that limits how many calls can run in parallell: https://rxjs-dev.firebaseapp.com/api/index/function/merge
+    }
+
+    private tryingMergeWithLoop() {
+        const images = ['1', '2', '3'];
+        const sources = [];
+
+        for (const i of images) {
+            sources.push(ajax.getJSON(`https://jsonplaceholder.typicode.com/todos/${i}`));
+        }
+
+        merge(...sources).subscribe(
+            null,
+            null,
+            () => console.log('complete successfully, navigate...')
+        );
     }
 }
