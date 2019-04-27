@@ -79,7 +79,7 @@ export class UnderstandingAndCreatingObservablesComponent implements OnInit {
         const prom = Promise.resolve('promises are promises');
         from(prom).subscribe(v => console.log(v));
 
-        // # combine Observables
+        // # concat(), combine Observables
         // it accepts the same arguments as the from() function
         // we chain subscribe directly to the function, we can always do that to functions that return an Observable
 
