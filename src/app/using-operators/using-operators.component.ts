@@ -131,6 +131,7 @@ export class UsingOperatorsComponent implements OnInit {
             With Angular Global Error Handler
                 - Log to database in it and redirect to error page
                 - No need for catchError nor error callback here
+                - See also global-error-handler.ts in my-app
 
             With Angular Global Error Handler and wanting to display a special message panel for one specific error
                 - catchError, run logic for displaying message panel, then return of(null) or something similar to not trigger Global Error Handler
