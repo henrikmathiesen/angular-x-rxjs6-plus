@@ -55,6 +55,9 @@ export class UsingOperatorsComponent implements OnInit {
                 .subscribe(v => console.log(v));
         */
 
+
+        // New syntax
+
         const source$ = of(1, 2, 3, 4, 5);
 
         source$.pipe(

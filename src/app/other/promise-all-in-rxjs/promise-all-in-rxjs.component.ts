@@ -125,6 +125,5 @@ export class PromiseAllInRxjsComponent implements OnInit {
             )
 
         // This will do
-        // If an error happens, ErrorHandler.prototype.handleError will run (which we can override)
     }
 }
