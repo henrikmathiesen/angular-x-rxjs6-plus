@@ -43,7 +43,7 @@ export class PromiseAllInRxjsComponent implements OnInit {
         source1$.pipe(
             concatMap((v) => {
                 console.log(v);
-                return source2$
+                return source2$;
             })
         )
             .subscribe(console.log);
@@ -59,6 +59,7 @@ export class PromiseAllInRxjsComponent implements OnInit {
             sources.push(ajax.getJSON(`https://jsonplaceholder.typicode.com/todos/${i}`));
         }
 
+        // I think it will work without spread operator (just like forkJoin)
         concat(...sources).subscribe(console.log);
     }
 
@@ -85,6 +86,7 @@ export class PromiseAllInRxjsComponent implements OnInit {
             sources.push(ajax.getJSON(`https://jsonplaceholder.typicode.com/todos/${i}`));
         }
 
+        // I think it will work without spread operator (just like forkJoin)
         merge(...sources).subscribe(
             null,
             null,
@@ -103,7 +105,7 @@ export class PromiseAllInRxjsComponent implements OnInit {
         forkJoin(source1$, source2$)
             .subscribe(
                 console.log
-            )
+            );
 
         // Think we use this one :)
     }
@@ -116,13 +118,14 @@ export class PromiseAllInRxjsComponent implements OnInit {
             sources.push(ajax.getJSON(`https://jsonplaceholder.typicode.com/todos/${i}`));
         }
 
-        forkJoin(...sources)
+        // Linter complained when using spread operator ...sources
+        forkJoin(sources)
             .subscribe(
                 (v) => {
-                    console.log(v)
-                    console.log('complete successfully, navigate...')
+                    console.log(v);
+                    console.log('complete successfully, navigate...');
                 }
-            )
+            );
 
         // This will do
     }

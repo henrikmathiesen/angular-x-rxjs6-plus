@@ -28,7 +28,7 @@ export class CatchPromiseComponent implements OnInit {
             //     throw 'err'
             // })
             .then(() => {
-                console.log('SUCCESS CALLBACK')
+                console.log('SUCCESS CALLBACK');
             })
             // .catch(() => {
             //     // This will not run if ERROR CALLBACK -- unless we throw
@@ -43,23 +43,23 @@ export class CatchPromiseComponent implements OnInit {
 
                 // This will run even if error and no catch
                 // If catch it still runs, but with throw it doesnt
-                return fetch(this.url1)
+                return fetch(this.url1);
             })
             .catch((e) => {
                 // This will not run if ERROR CALLBACK
                 // console.log('CATCH');
-            
+
                 console.log('CALL SERVICE, LOG TO DB');
-                throw e // stops then() chain
+                throw e; // stops then() chain
             })
-            .catch(() => { 
+            .catch(() => {
                 console.log('REDIRECT TO ERROR PAGE');
                 // https://hackernoon.com/promises-and-error-handling-4a11af37cb0e
             })
             .finally(() => {
                 // Will always run
                 console.log('FINALLY');
-            })
+            });
     }
 
 }
