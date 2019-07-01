@@ -94,6 +94,9 @@ export class UsingOperatorsComponent implements OnInit {
 
             I dont know what the differences are ...
             But xxxMap seams to be operators that transforms/manipulate in some way
+
+            If we look at concat vs concatMap (promise-all-in-rxjs.component), 
+            concat is used as a stand alone function and concatMap is used in a pipe()
         */
     }
 
