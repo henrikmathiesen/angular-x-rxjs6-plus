@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TypeaheadSearchInObjectsComponent } from './typeahead-search-in-objects/typeahead-search-in-objects.component';
 import { PromiseAllInRxjsComponent } from './promise-all-in-rxjs/promise-all-in-rxjs.component';
 import { CatchPromiseComponent } from './catch-promise/catch-promise.component';
+import { CatchErrorTryAgainComponent } from './catch-error-try-again/catch-error-try-again.component';
 
 const routes: Routes = [
     {
@@ -25,6 +26,10 @@ const routes: Routes = [
             {
                 path: 'catch-in-promise',
                 component: CatchPromiseComponent
+            },
+            {
+                path: 'catch-error-try-again',
+                component: CatchErrorTryAgainComponent
             }
         ]
     },
