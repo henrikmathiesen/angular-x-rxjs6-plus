@@ -19,7 +19,7 @@ export class CatchErrorTryAgainComponent {
         // ajax.getJSON(url)
         //     .subscribe(
         //         v => console.log('success', v),
-        //         e => this.tryAgainAfterSec()
+        //         e => this.tryAgainAfterCountDown()
         //     );
 
         // For the reasons above, we are going to catch it here instead, so globalErrorHandler is NOT run
