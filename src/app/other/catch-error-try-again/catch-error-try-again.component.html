@@ -1,1 +1,11 @@
 <h2>Catch Error try again</h2>
+
+<p>
+    <button type="button" (click)="makeAjaxRequest()">Make request</button>
+</p>
+
+<p *ngIf="countDown !== 6 && countDown !== 0">
+    Error making request, trying again in {{ countDown }} seconds.
+</p>
+
+

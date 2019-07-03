@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common'; 
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -16,6 +17,7 @@ import { CatchErrorTryAgainComponent } from './catch-error-try-again/catch-error
         CatchErrorTryAgainComponent
     ],
     imports: [
+        CommonModule,
         FormsModule,
         NgbModule,
         OtherRoutingModule
