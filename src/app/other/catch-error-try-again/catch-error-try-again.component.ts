@@ -27,7 +27,7 @@ export class CatchErrorTryAgainComponent {
         ajax.getJSON(url)
             .pipe(
                 catchError(() => {
-                    this.tryAgainAfterCountDown()
+                    this.tryAgainAfterCountDown();
                     return of(null);
                 })
             )
