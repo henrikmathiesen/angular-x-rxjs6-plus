@@ -34,6 +34,8 @@ export class CatchErrorTryAgainComponent {
             .subscribe(
                 v => console.log('success', v)
             );
+
+        // Also, RXJS has an interval function, see managing-subscriptions-with-observers.component
     }
 
     private tryAgainAfterCountDown() {
