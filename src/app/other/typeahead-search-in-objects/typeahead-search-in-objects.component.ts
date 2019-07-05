@@ -26,6 +26,9 @@ export class TypeaheadSearchInObjectsComponent implements OnInit {
   // https://ng-bootstrap.github.io/#/components/typeahead/examples
   // https://ng-bootstrap.github.io/#/components/typeahead/api
   // Maybee delegate this to a service
+  // If search would have fetched data from network call, use switchMap operator instead of map to save on http calls
+  //  - https://www.learnrxjs.io/operators/transformation/switchmap.html
+  //  - https://stackblitz.com/run?file=app/typeahead-http.ts
   search(text$: Observable<string>) {
     return text$.pipe(
       debounceTime(200),
