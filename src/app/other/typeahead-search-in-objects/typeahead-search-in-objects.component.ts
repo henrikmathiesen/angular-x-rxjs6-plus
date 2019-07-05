@@ -29,6 +29,7 @@ export class TypeaheadSearchInObjectsComponent implements OnInit {
   // If search would have fetched data from network call, use switchMap operator instead of map to save on http calls
   //  - https://www.learnrxjs.io/operators/transformation/switchmap.html
   //  - https://stackblitz.com/run?file=app/typeahead-http.ts
+  //  - https://blog.angularindepth.com/when-to-use-switchmap-dfe84ac5a1ff
   search(text$: Observable<string>) {
     return text$.pipe(
       debounceTime(200),
