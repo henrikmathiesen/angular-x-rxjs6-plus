@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
 })
 export class SubjectsAndMulticastedObservablesComponent {
 
+    // Iam only watching the video on this topic. No coding.
+    
 }
