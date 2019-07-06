@@ -4,5 +4,5 @@ import { Component } from '@angular/core';
     templateUrl: './how-to-love-rxjs.component.html'
 })
 export class HowToLoveRxjsComponent {
-    
+
 }
