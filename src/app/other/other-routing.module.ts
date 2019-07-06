@@ -5,6 +5,7 @@ import { TypeaheadSearchInObjectsComponent } from './typeahead-search-in-objects
 import { PromiseAllInRxjsComponent } from './promise-all-in-rxjs/promise-all-in-rxjs.component';
 import { CatchPromiseComponent } from './catch-promise/catch-promise.component';
 import { CatchErrorTryAgainComponent } from './catch-error-try-again/catch-error-try-again.component';
+import { HowToLoveRxjsComponent } from './how-to-love-rxjs/how-to-love-rxjs.component';
 
 const routes: Routes = [
     {
@@ -30,6 +31,10 @@ const routes: Routes = [
             {
                 path: 'catch-error-try-again',
                 component: CatchErrorTryAgainComponent
+            },
+            {
+                path: 'how-to-love-rxjs',
+                component: HowToLoveRxjsComponent
             }
         ]
     },

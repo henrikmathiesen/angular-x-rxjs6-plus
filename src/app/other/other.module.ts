@@ -8,13 +8,15 @@ import { TypeaheadSearchInObjectsComponent } from './typeahead-search-in-objects
 import { PromiseAllInRxjsComponent } from './promise-all-in-rxjs/promise-all-in-rxjs.component';
 import { CatchPromiseComponent } from './catch-promise/catch-promise.component';
 import { CatchErrorTryAgainComponent } from './catch-error-try-again/catch-error-try-again.component';
+import { HowToLoveRxjsComponent } from './how-to-love-rxjs/how-to-love-rxjs.component';
 
 @NgModule({
     declarations: [
         TypeaheadSearchInObjectsComponent,
         PromiseAllInRxjsComponent,
         CatchPromiseComponent,
-        CatchErrorTryAgainComponent
+        CatchErrorTryAgainComponent,
+        HowToLoveRxjsComponent
     ],
     imports: [
         CommonModule,
