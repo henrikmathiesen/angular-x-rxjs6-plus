@@ -5,7 +5,7 @@ import { delay, switchMap } from 'rxjs/operators';
 @Component({
     templateUrl: './switch-map-operator.component.html'
 })
-export class SwitchMapOperator implements OnInit {
+export class SwitchMapOperatorComponent implements OnInit {
 
     // https://blog.angular-university.io/rxjs-switchmap-operator/
     // https://medium.com/@w.dave.w/becoming-more-reactive-with-rxjs-flatmap-and-switchmap-ccd3fb7b67fa
@@ -17,15 +17,15 @@ export class SwitchMapOperator implements OnInit {
 
     }
 
-    // "Let's simulate a request that saves some user data, 
+    // "Let's simulate a request that saves some user data,
     // and then reloads some other data that is impacted by that server-side modification."
     private simulateSaveAndReload() {
-        const saveUser$ = this.simulateHttp("user saved", 1000);
+        const saveUser$ = this.simulateHttp('user saved', 1000);
 
         const httpResult$ = saveUser$.pipe(
             switchMap(sourceValue => {
                 console.log(sourceValue);
-                return this.simulateHttp("data reloaded", 2000);
+                return this.simulateHttp('data reloaded', 2000);
             })
         );
 
@@ -35,7 +35,7 @@ export class SwitchMapOperator implements OnInit {
             () => console.log('completed httpResult$')
         );
 
-        // "So as we can see the switchMap operator is a great way of doing one HTTP request 
+        // "So as we can see the switchMap operator is a great way of doing one HTTP request
         // using the output of an initial request here, so this is one common way that we can use it."
 
         // This is to avoid nested subscriptions
@@ -43,8 +43,8 @@ export class SwitchMapOperator implements OnInit {
     }
 
     private testSimpleHttpCall() {
-        const http1$ = this.simulateHttp("1", 1000);
-        const http2$ = this.simulateHttp("2", 1000);
+        const http1$ = this.simulateHttp('1', 1000);
+        const http2$ = this.simulateHttp('2', 1000);
 
         http1$.subscribe(
             console.log,

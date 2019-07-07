@@ -21,18 +21,18 @@ export class HowToLoveRxjsComponent {
     // 2) The source of data needs a search term
     // 3) The search term comes from an event
 
+    searchTermModel = '';
+
     // 2)
-    private searchTerm$ = new Subject()
+    private searchTerm$ = new Subject();
 
     // 1)
     data$ = this.searchTerm$.pipe(
         switchMap(
             term => of(term) // switch off from searchTerm$ and on to of()
         )
-    )
+    );
 
     // 3)
-    changeSearchTerm = term => this.searchTerm$.next(term)
-
-    searchTermModel = '';
+    changeSearchTerm = term => this.searchTerm$.next(term);
 }

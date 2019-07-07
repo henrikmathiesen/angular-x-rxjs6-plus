@@ -8,7 +8,7 @@ import { TypeaheadSearchInObjectsComponent } from './typeahead-search-in-objects
 import { PromiseAllInRxjsComponent } from './promise-all-in-rxjs/promise-all-in-rxjs.component';
 import { CatchPromiseComponent } from './catch-promise/catch-promise.component';
 import { CatchErrorTryAgainComponent } from './catch-error-try-again/catch-error-try-again.component';
-import { SwitchMapOperator } from './switch-map-operator/switch-map-operator.component';
+import { SwitchMapOperatorComponent } from './switch-map-operator/switch-map-operator.component';
 import { HowToLoveRxjsComponent } from './how-to-love-rxjs/how-to-love-rxjs.component';
 
 @NgModule({
@@ -17,7 +17,7 @@ import { HowToLoveRxjsComponent } from './how-to-love-rxjs/how-to-love-rxjs.comp
         PromiseAllInRxjsComponent,
         CatchPromiseComponent,
         CatchErrorTryAgainComponent,
-        SwitchMapOperator,
+        SwitchMapOperatorComponent,
         HowToLoveRxjsComponent
     ],
     imports: [
