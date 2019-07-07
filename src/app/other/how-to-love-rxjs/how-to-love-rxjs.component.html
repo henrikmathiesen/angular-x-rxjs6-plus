@@ -1,1 +1,13 @@
 <h2>How to Love RXJS</h2>
+
+<p>
+    {{ data$ | async }}
+</p>
+
+<p>
+    <input type="text" [(ngModel)]="searchTermModel">
+</p>
+
+<p>
+    <button type="button" (click)="changeSearchTerm(searchTermModel)">Get some Data</button>
+</p>

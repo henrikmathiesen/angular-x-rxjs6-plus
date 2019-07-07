@@ -23,7 +23,7 @@ export class SwitchMapOperator implements OnInit {
         const saveUser$ = this.simulateHttp("user saved", 1000);
 
         const httpResult$ = saveUser$.pipe(
-            switchMap((sourceValue) => {
+            switchMap(sourceValue => {
                 console.log(sourceValue);
                 return this.simulateHttp("data reloaded", 2000);
             })
