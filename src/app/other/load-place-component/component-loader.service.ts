@@ -1,7 +1,8 @@
-import { Injectable, ComponentFactoryResolver } from '@angular/core';
+import { Injectable, ComponentFactoryResolver, ComponentFactory } from '@angular/core';
 
 import { FormItem100Component } from './form-item-100/form-item-100.component';
 import { FormItem200Component } from './form-item-200/form-item-200.component';
+import { FormItemInterface } from './form-item.interface';
 
 @Injectable()
 export class ComponentLoaderService {
@@ -10,7 +11,7 @@ export class ComponentLoaderService {
         private componentFactoryResolver: ComponentFactoryResolver
     ) { }
 
-    getComponentForNr(nr: number) {
+    getComponentForNr(nr: number): ComponentFactory<FormItemInterface> {
 
         switch (nr) {
             case 100: {

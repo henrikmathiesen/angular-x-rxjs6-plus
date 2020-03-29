@@ -23,6 +23,8 @@ export class HostComponent {
         viewContainerRef.clear();
 
         const componentFactored = this.componentLoaderService.getComponentForNr(nr);
-        viewContainerRef.createComponent(componentFactored); // TODO: get to methods on component (use an interface)
+        const comp = viewContainerRef.createComponent(componentFactored);               // This is enough to place the component. But we store it in a reference for further testing.
+
+        comp.instance.sayHi();                                                          // Like running a method on the placed component
     }
 }
