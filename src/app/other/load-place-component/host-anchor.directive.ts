@@ -4,7 +4,7 @@ import { Directive, ViewContainerRef } from '@angular/core';
     selector: '[host-anchor]',
 })
 export class HostAnchorDirective {
-    constructor(public viewContainerRef: ViewContainerRef) { 
-        
-    }
+    constructor(
+        public viewContainerRef: ViewContainerRef   // OBS public, we use from code in host.component
+    ) { }
 }

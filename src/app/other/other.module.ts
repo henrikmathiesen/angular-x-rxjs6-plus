@@ -26,9 +26,9 @@ import { ComponentLoaderService } from './load-place-component/component-loader.
         SwitchMapOperatorComponent,
         HowToLoveRxjsComponent,
 
-        HostComponent,
         FormItem100Component,
         FormItem200Component,
+        HostComponent,
         HostAnchorDirective
     ],
     imports: [
@@ -39,6 +39,10 @@ import { ComponentLoaderService } from './load-place-component/component-loader.
     ],
     providers: [
         ComponentLoaderService
+    ],
+    entryComponents: [                  // <--- OBS
+        FormItem100Component,
+        FormItem200Component
     ]
 })
 export class OtherModule { }
