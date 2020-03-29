@@ -7,6 +7,7 @@ import { CatchPromiseComponent } from './catch-promise/catch-promise.component';
 import { CatchErrorTryAgainComponent } from './catch-error-try-again/catch-error-try-again.component';
 import { SwitchMapOperatorComponent } from './switch-map-operator/switch-map-operator.component';
 import { HowToLoveRxjsComponent } from './how-to-love-rxjs/how-to-love-rxjs.component';
+import { HostComponent } from './load-place-component/host/host.component';
 
 const routes: Routes = [
     {
@@ -40,6 +41,10 @@ const routes: Routes = [
             {
                 path: 'how-to-love-rxjs',
                 component: HowToLoveRxjsComponent
+            },
+            {
+                path: 'load-place-component',
+                component: HostComponent
             }
         ]
     },

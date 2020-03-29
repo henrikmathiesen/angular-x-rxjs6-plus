@@ -11,6 +11,12 @@ import { CatchErrorTryAgainComponent } from './catch-error-try-again/catch-error
 import { SwitchMapOperatorComponent } from './switch-map-operator/switch-map-operator.component';
 import { HowToLoveRxjsComponent } from './how-to-love-rxjs/how-to-love-rxjs.component';
 
+import { HostComponent } from './load-place-component/host/host.component';
+import { FormItem100Component } from './load-place-component/form-item-100/form-item-100.component';
+import { FormItem200Component } from './load-place-component/form-item-200/form-item-200.component';
+import { HostAnchorDirective } from './load-place-component/host-anchor.directive';
+import { ComponentLoaderService } from './load-place-component/component-loader.service';
+
 @NgModule({
     declarations: [
         TypeaheadSearchInObjectsComponent,
@@ -18,13 +24,21 @@ import { HowToLoveRxjsComponent } from './how-to-love-rxjs/how-to-love-rxjs.comp
         CatchPromiseComponent,
         CatchErrorTryAgainComponent,
         SwitchMapOperatorComponent,
-        HowToLoveRxjsComponent
+        HowToLoveRxjsComponent,
+
+        HostComponent,
+        FormItem100Component,
+        FormItem200Component,
+        HostAnchorDirective
     ],
     imports: [
         CommonModule,
         FormsModule,
         NgbModule,
         OtherRoutingModule
+    ],
+    providers: [
+        ComponentLoaderService
     ]
 })
 export class OtherModule { }
