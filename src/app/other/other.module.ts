@@ -17,6 +17,8 @@ import { FormItem200Component } from './load-place-component/form-item-200/form-
 import { HostAnchorDirective } from './load-place-component/host-anchor.directive';
 import { ComponentLoaderService } from './load-place-component/component-loader.service';
 
+import { IndexIntoArrayObjectComponent } from './index-into-array-object/index-into-array-object.component';
+
 @NgModule({
     declarations: [
         TypeaheadSearchInObjectsComponent,
@@ -29,7 +31,9 @@ import { ComponentLoaderService } from './load-place-component/component-loader.
         FormItem100Component,
         FormItem200Component,
         HostComponent,
-        HostAnchorDirective
+        HostAnchorDirective,
+
+        IndexIntoArrayObjectComponent
     ],
     imports: [
         CommonModule,

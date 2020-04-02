@@ -8,6 +8,7 @@ import { CatchErrorTryAgainComponent } from './catch-error-try-again/catch-error
 import { SwitchMapOperatorComponent } from './switch-map-operator/switch-map-operator.component';
 import { HowToLoveRxjsComponent } from './how-to-love-rxjs/how-to-love-rxjs.component';
 import { HostComponent } from './load-place-component/host/host.component';
+import { IndexIntoArrayObjectComponent } from './index-into-array-object/index-into-array-object.component';
 
 const routes: Routes = [
     {
@@ -45,6 +46,10 @@ const routes: Routes = [
             {
                 path: 'load-place-component',
                 component: HostComponent
+            },
+            {
+                path: 'index-into-array-object',
+                component: IndexIntoArrayObjectComponent
             }
         ]
     },
