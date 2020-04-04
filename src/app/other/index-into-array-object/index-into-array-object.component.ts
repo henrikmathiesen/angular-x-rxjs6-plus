@@ -19,7 +19,9 @@ export class IndexIntoArrayObjectComponent {
 
     btnObjAction(btn: string) {
         for (const property in this.btnObjState) {
-            this.btnObjState[property] = ButtonsStateConstant.inactive;
+            if (this.btnObjState.hasOwnProperty(property)) {
+                this.btnObjState[property] = ButtonsStateConstant.inactive;
+            }
         }
 
         this.btnObjState[btn] = ButtonsStateConstant.active;
@@ -50,16 +52,23 @@ export class IndexIntoArrayObjectComponent {
     }
 }
 
-/* 
+/* tslint:disable */
+
+/*
+    
 
     OBJ
         - can not type btn as ButtonsConstant, not good
         - when using object typing, intellisence gets cluttered
+        - hasOwnProperty check is adding complexity
 
     ARRAY
         - can use type btn as enum, good, a number is sent in as the argument
         - when using enum typing, intellisence is better
 
     I prefer array with enum
+
+
+    See javascript-the-important-parts > typescript for index into an enum
 
 */
