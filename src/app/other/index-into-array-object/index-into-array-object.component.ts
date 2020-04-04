@@ -15,7 +15,7 @@ export class IndexIntoArrayObjectComponent {
     btnObjState = {};
 
     buttonsEnum = ButtonsEnum;
-    btnArrayState = [];
+    btnArrayState: ButtonsStateEnum[] = [];
 
     btnObjAction(btn: string) {
         for (const property in this.btnObjState) {
