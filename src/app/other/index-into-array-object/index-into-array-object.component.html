@@ -1,1 +1,19 @@
 <h2>Index into array and object</h2>
+
+<div>
+    <h3>Object</h3>
+    <div>
+        <div class="mb-2">
+            <button class="btn" [ngClass]="getBtnObjCssClass(buttonsConstant.button01)"
+                (click)="btnObjAction(buttonsConstant.button01)">Action 1</button>
+        </div>
+        <div class="mb-2">
+            <button class="btn" [ngClass]="getBtnObjCssClass(buttonsConstant.button02)"
+                (click)="btnObjAction(buttonsConstant.button02)">Action 2</button>
+        </div>
+        <div>
+            <button class="btn" [ngClass]="getBtnObjCssClass(buttonsConstant.button03)"
+                (click)="btnObjAction(buttonsConstant.button03)">Action 3</button>
+        </div>
+    </div>
+</div>
