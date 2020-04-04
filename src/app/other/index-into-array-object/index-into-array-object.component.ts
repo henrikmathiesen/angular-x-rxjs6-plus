@@ -13,7 +13,6 @@ export class IndexIntoArrayObjectComponent {
 
     btnObjState = {};
 
-    // 
     btnObjAction(btn: string) {
         for (const property in this.btnObjState) {
             this.btnObjState[property] = ButtonsStateConstant.inactive;
@@ -24,10 +23,6 @@ export class IndexIntoArrayObjectComponent {
         console.log('--- OBJ ---');
         console.log(this.btnObjState);
         console.log('--- /OBJ ---');
-    }
-
-    getBtnObjState(btn: string) {
-        return this.btnObjState[btn];
     }
 
     getBtnObjCssClass(btn: string) {
