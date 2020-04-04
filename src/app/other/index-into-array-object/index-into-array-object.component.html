@@ -2,7 +2,7 @@
 
 <div>
     <h3>Object</h3>
-    <div>
+    <div class="mb-4">
         <div class="mb-2">
             <button class="btn" [ngClass]="getBtnObjCssClass(buttonsConstant.button01)"
                 (click)="btnObjAction(buttonsConstant.button01)">Action 1</button>
@@ -14,6 +14,20 @@
         <div>
             <button class="btn" [ngClass]="getBtnObjCssClass(buttonsConstant.button03)"
                 (click)="btnObjAction(buttonsConstant.button03)">Action 3</button>
+        </div>
+    </div>
+    <div>
+        <div class="mb-2">
+            <button class="btn" [ngClass]="getBtnArrayCssClass(buttonsEnum.button01)"
+                (click)="btnArrayAction(buttonsEnum.button01)">Action 1</button>
+        </div>
+        <div class="mb-2">
+            <button class="btn" [ngClass]="getBtnArrayCssClass(buttonsEnum.button02)"
+                (click)="btnArrayAction(buttonsEnum.button02)">Action 2</button>
+        </div>
+        <div>
+            <button class="btn" [ngClass]="getBtnArrayCssClass(buttonsEnum.button03)"
+                (click)="btnArrayAction(buttonsEnum.button03)">Action 3</button>
         </div>
     </div>
 </div>
