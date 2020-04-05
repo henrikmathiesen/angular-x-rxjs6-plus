@@ -7,6 +7,7 @@ import { ComponentLoaderService } from '../component-loader.service';
     templateUrl: './host.component.html'
 })
 export class HostComponent {
+    // https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/
     // https://angular.io/guide/dynamic-component-loader
     // OBS: add the factored components to entryComponents:[] in other.module
 
