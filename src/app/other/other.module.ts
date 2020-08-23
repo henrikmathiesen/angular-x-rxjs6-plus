@@ -18,6 +18,7 @@ import { HostAnchorDirective } from './load-place-component/host-anchor.directiv
 import { ComponentLoaderService } from './load-place-component/component-loader.service';
 
 import { IndexIntoArrayObjectComponent } from './index-into-array-object/index-into-array-object.component';
+import { TabsComponent } from './tabs/tabs.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import { IndexIntoArrayObjectComponent } from './index-into-array-object/index-i
         HostComponent,
         HostAnchorDirective,
 
-        IndexIntoArrayObjectComponent
+        IndexIntoArrayObjectComponent,
+        TabsComponent
     ],
     imports: [
         CommonModule,
