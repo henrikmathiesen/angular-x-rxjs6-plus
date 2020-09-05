@@ -1,0 +1,26 @@
+.app-tab-button {
+    color: #666 !important;
+    font-weight: 900;
+}
+
+.app-tab-border {
+    border-bottom: 2px solid #666;
+    position: relative;
+    top: -2px;
+}
+
+.app-tab-button {
+    background-color: #fcfcfc;
+    border: 2px solid #666;
+    border-bottom: 0;
+    width: 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.app-tab-button-active {
+    background-color: #666;
+    color: #FFF !important;
+}

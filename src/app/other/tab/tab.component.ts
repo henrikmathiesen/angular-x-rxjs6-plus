@@ -7,8 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class TabComponent {
 
-    @Input() id: string;
-    @Input() labelledbyId: string;
     @Input() header: string;
 
 
