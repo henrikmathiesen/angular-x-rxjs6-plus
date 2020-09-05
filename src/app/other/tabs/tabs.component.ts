@@ -13,14 +13,32 @@ export class TabsComponent implements AfterContentInit {
     @Input() ariaLabel: string;
     @ContentChildren(TabComponent) tabComponents!: QueryList<TabComponent>;
 
+    activeTab = 0;
+
     ngAfterContentInit() {
         this.setIdentifierForContentChildren();
+        this.setActiveTabForContentChildren();
     }
 
     private setIdentifierForContentChildren() {
         this.tabComponents.forEach((tabC, i) => {
             tabC.id = this.getIdentifierTab(i);
             tabC.ariaLabelledby = this.getIdentifierButton(i);
+        });
+    }
+
+    private setActiveTabForContentChildren() {
+        this.tabComponents.forEach(tabC => tabC.isVisible = false);
+        this.tabComponents.toArray()[this.activeTab].isVisible = true;
+    }
+
+    private setFocusOnActiveTabHeader() {
+        const activeTabId = this.getIdentifierTab(this.activeTab);
+        const $selector = document.querySelector(`#${activeTabId} h3`);
+
+        // TODO, use viewChild in contentChild
+        setTimeout(() => {
+            ($selector as any).focus();
         });
     }
 
@@ -32,5 +50,11 @@ export class TabsComponent implements AfterContentInit {
     getIdentifierTab(i: number) {
         i += 1;
         return `tabs-${this.id}-tab-${i}`;
+    }
+
+    setActiveTab(i: number) {
+        this.activeTab = i;
+        this.setActiveTabForContentChildren();
+        this.setFocusOnActiveTabHeader();
     }
 }

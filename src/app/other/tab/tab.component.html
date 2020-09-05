@@ -1,4 +1,4 @@
-<div role="tabpanel" [id]="id" [attr.aria-labelledby]="ariaLabelledby">
+<div role="tabpanel" [id]="id" [attr.aria-labelledby]="ariaLabelledby" [hidden]="!isVisible">
     <h3 tabindex="-1">{{ header }}</h3>
     <ng-content></ng-content>
 </div>

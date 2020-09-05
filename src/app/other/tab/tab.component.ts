@@ -11,6 +11,7 @@ export class TabComponent {
 
     id = '';
     ariaLabelledby = '';
+    isVisible = false;
 
 
 }

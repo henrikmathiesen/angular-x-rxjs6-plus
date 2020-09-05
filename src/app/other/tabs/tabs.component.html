@@ -1,19 +1,13 @@
 <div>
     <div class="row" role="tablist" [attr.aria-label]="ariaLabel">
-        <!-- <div class="col-4 col-lg-3">
-            <button id="tab-button-1" class="btn btn-link app-tab-button app-tab-button-active" role="tab" aria-selected="true" aria-controls="tab-1">TAB 1</button>
-        </div>
-        <div class="col-4 col-lg-3">
-            <button id="tab-button-2" class="btn btn-link app-tab-button" role="tab" aria-selected="false" aria-controls="tab-2">TAB 2</button>
-        </div>
-        <div class="col-4 col-lg-3">
-            <button id="tab-button-3" class="btn btn-link app-tab-button" role="tab" aria-selected="false" aria-controls="tab-3">TAB 3</button>
-        </div> -->
-
         <div *ngFor="let tab of tabComponents; index as i" class="col-4 col-lg-3">
-            <button class="btn btn-link app-tab-button" role="tab" [id]="getIdentifierButton(i)" [attr.aria-controls]="getIdentifierTab(i)">TAB {{ i + 1 }}</button>
+            <button class="btn btn-link app-tab-button" role="tab" 
+                [ngClass]="{'app-tab-button-active': i === activeTab }"
+                [attr.aria-selected]="i === activeTab"
+                [id]="getIdentifierButton(i)" 
+                [attr.aria-controls]="getIdentifierTab(i)"
+                (click)="setActiveTab(i)">TAB {{ i + 1 }}</button>
         </div>
-
     </div>
     <div class="row">
         <div class="col">
