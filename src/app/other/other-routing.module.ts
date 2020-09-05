@@ -9,7 +9,7 @@ import { SwitchMapOperatorComponent } from './switch-map-operator/switch-map-ope
 import { HowToLoveRxjsComponent } from './how-to-love-rxjs/how-to-love-rxjs.component';
 import { HostComponent } from './load-place-component/host/host.component';
 import { IndexIntoArrayObjectComponent } from './index-into-array-object/index-into-array-object.component';
-import { TabsComponent } from './tabs/tabs.component';
+import { TabsPageComponent } from './tabs-page/tabs-page.component';
 
 const routes: Routes = [
     {
@@ -53,8 +53,8 @@ const routes: Routes = [
                 component: IndexIntoArrayObjectComponent
             },
             {
-                path: 'tabs',
-                component: TabsComponent
+                path: 'tabs-page',
+                component: TabsPageComponent
             }
         ]
     },

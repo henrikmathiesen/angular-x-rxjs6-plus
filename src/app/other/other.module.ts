@@ -18,7 +18,10 @@ import { HostAnchorDirective } from './load-place-component/host-anchor.directiv
 import { ComponentLoaderService } from './load-place-component/component-loader.service';
 
 import { IndexIntoArrayObjectComponent } from './index-into-array-object/index-into-array-object.component';
+
+import { TabsPageComponent } from './tabs-page/tabs-page.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { TabComponent } from './tab/tab.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +38,10 @@ import { TabsComponent } from './tabs/tabs.component';
         HostAnchorDirective,
 
         IndexIntoArrayObjectComponent,
-        TabsComponent
+
+        TabsPageComponent,
+        TabsComponent,
+        TabComponent
     ],
     imports: [
         CommonModule,
