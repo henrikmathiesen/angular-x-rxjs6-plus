@@ -9,5 +9,8 @@ export class TabComponent {
 
     @Input() header: string;
 
+    id = '';
+    ariaLabelledby = '';
+
 
 }

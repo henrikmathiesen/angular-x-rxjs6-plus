@@ -14,7 +14,23 @@ export class TabsComponent implements AfterContentInit {
     @ContentChildren(TabComponent) tabComponents!: QueryList<TabComponent>;
 
     ngAfterContentInit() {
-        // Content Children ready in this hook
-        this.tabComponents.forEach(v => console.log(v));
+        this.setIdentifierForContentChildren();
+    }
+
+    private setIdentifierForContentChildren() {
+        this.tabComponents.forEach((tabC, i) => {
+            tabC.id = this.getIdentifierTab(i);
+            tabC.ariaLabelledby = this.getIdentifierButton(i);
+        });
+    }
+
+    getIdentifierButton(i: number) {
+        i += 1;
+        return `tabs-${this.id}-tab-button-${i}`;
+    }
+
+    getIdentifierTab(i: number) {
+        i += 1;
+        return `tabs-${this.id}-tab-${i}`;
     }
 }
