@@ -2,8 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-tab',
-    templateUrl: './tab.component.html',
-    styleUrls: ['./tab.component.scss']
+    templateUrl: './tab.component.html'
 })
 export class TabComponent {
 
