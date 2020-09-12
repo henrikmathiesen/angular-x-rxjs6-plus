@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
     selector: 'app-tab',
@@ -6,11 +6,15 @@ import { Component, Input } from '@angular/core';
 })
 export class TabComponent {
 
+    @ViewChild('tabHeader') tabHeader: ElementRef;
     @Input() header: string;
 
     id = '';
     ariaLabelledby = '';
     isVisible = false;
 
+    setFocusOnTabHeader() {
+        (this.tabHeader.nativeElement as HTMLElement).focus();
+    }
 
 }

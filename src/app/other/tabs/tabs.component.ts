@@ -33,12 +33,12 @@ export class TabsComponent implements AfterContentInit {
     }
 
     private setFocusOnActiveTabHeader() {
-        const activeTabId = this.getIdentifierTab(this.activeTab);
-        const $selector = document.querySelector(`#${activeTabId} h3`);
+        // const activeTabId = this.getIdentifierTab(this.activeTab);
+        // const $selector = document.querySelector(`#${activeTabId} h3`);
 
-        // TODO, use viewChild in contentChild
         setTimeout(() => {
-            ($selector as any).focus();
+            // ($selector as any).focus();
+            this.tabComponents.toArray()[this.activeTab].setFocusOnTabHeader();
         });
     }
 
