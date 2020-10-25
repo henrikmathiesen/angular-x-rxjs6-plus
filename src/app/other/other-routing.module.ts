@@ -10,6 +10,7 @@ import { HowToLoveRxjsComponent } from './how-to-love-rxjs/how-to-love-rxjs.comp
 import { HostComponent } from './load-place-component/host/host.component';
 import { IndexIntoArrayObjectComponent } from './index-into-array-object/index-into-array-object.component';
 import { TabsPageComponent } from './tabs-page/tabs-page.component';
+import { FormValidationPatternComponent } from './form-validation-pattern/form-validation-pattern.component';
 
 const routes: Routes = [
     {
@@ -55,6 +56,10 @@ const routes: Routes = [
             {
                 path: 'tabs-page',
                 component: TabsPageComponent
+            },
+            {
+                path: 'form-validation-pattern',
+                component: FormValidationPatternComponent
             }
         ]
     },

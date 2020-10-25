@@ -23,6 +23,8 @@ import { TabsPageComponent } from './tabs-page/tabs-page.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { TabComponent } from './tab/tab.component';
 
+import { FormValidationPatternComponent } from './form-validation-pattern/form-validation-pattern.component';
+
 @NgModule({
     declarations: [
         TypeaheadSearchInObjectsComponent,
@@ -41,7 +43,9 @@ import { TabComponent } from './tab/tab.component';
 
         TabsPageComponent,
         TabsComponent,
-        TabComponent
+        TabComponent,
+
+        FormValidationPatternComponent
     ],
     imports: [
         CommonModule,
