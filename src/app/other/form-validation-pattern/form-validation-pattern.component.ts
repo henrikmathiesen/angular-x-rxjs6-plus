@@ -39,6 +39,12 @@ export class FormValidationPatternComponent implements OnInit {
 
         if (errorType === 'required') {
             return fc.hasError(errorType) && this.triedSubmit;
+
+            /*
+                updateOn: 'blur' validates on blur, but formcontrols starts required invalid
+                to hinder validation messages from showing initally we can set
+                fc.touched as condition , or to show on form submitted this.triedSubmit
+            */
         }
 
     }
