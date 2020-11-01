@@ -5,16 +5,28 @@
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text" id="name" class="form-control" formControlName="name">
+        <p *ngIf="fcHasError('name', 'required')">
+            Is required...
+        </p>
     </div>
 
     <div class="form-group">
         <label for="phoneOne">Phone 1</label>
         <input type="tel" id="phoneOne" class="form-control" formControlName="phoneOne">
+        <p *ngIf="fcHasError('phoneOne', 'required')">
+            Is required...
+        </p>
+        <p *ngIf="fcHasError('phoneOne', 'pattern')">
+            Only numbers...
+        </p>
     </div>
 
     <div class="form-group">
         <label for="phoneTwo">Phone 2</label>
         <input type="tel" id="phoneTwo" class="form-control" formControlName="phoneTwo">
+        <p *ngIf="fcHasError('phoneTwo', 'pattern')">
+            Only numbers...
+        </p>
     </div>
 
     <div class="mt-4">
@@ -22,32 +34,5 @@
     </div>
 
     <hr>
-
-    <div class="mt-5">
-        <div>
-            <div>
-                Name valid
-            </div>
-            <div>
-                {{ theForm.get('name').valid }}
-            </div>
-        </div>
-        <div>
-            <div>
-                PhoneOne valid
-            </div>
-            <div>
-                {{ theForm.get('phoneOne').valid }}
-            </div>
-        </div>
-        <div>
-            <div>
-                PhoneTwo valid
-            </div>
-            <div>
-                {{ theForm.get('phoneTwo').valid }}
-            </div>
-        </div>
-    </div>
 
 </form>

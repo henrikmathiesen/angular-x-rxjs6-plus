@@ -7,6 +7,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class FormValidationPatternComponent implements OnInit {
 
     theForm: FormGroup;
+    triedSubmit = false;
     private readonly onlyNumbers = /^[0-9]*$/;
     // private readonly onlyNumbersToo = /^\d*$/;
 
@@ -19,34 +20,54 @@ export class FormValidationPatternComponent implements OnInit {
     }
 
     handleSubmit() {
+        this.triedSubmit = true;
+
         console.log('--- submit ---');
         console.log('form valid', this.theForm.valid);
         console.log('form values', this.theForm.value);
         console.log('--- /submit ---');
     }
 
+    fcHasError(name: string, errorType: string) {
+        // should do errors as enums
+
+        const fc = this.theForm.get(name);
+
+        if (errorType === 'pattern') {
+            return fc.hasError(errorType);
+        }
+
+        if (errorType === 'required') {
+            return fc.hasError(errorType) && this.triedSubmit;
+        }
+
+    }
+
     private setupForm() {
-        this.theForm = this.formBuilder.group({
-            name: [
-                '',
-                [
-                    Validators.required
+        this.theForm = this.formBuilder.group(
+            {
+                name: [
+                    '',
+                    [
+                        Validators.required
+                    ]
+                ],
+                phoneOne: [
+                    '',
+                    [
+                        Validators.required,
+                        Validators.pattern(this.onlyNumbers)
+                    ]
+                ],
+                phoneTwo: [
+                    '',
+                    [
+                        Validators.pattern(this.onlyNumbers)
+                    ]
                 ]
-            ],
-            phoneOne: [
-                '',
-                [
-                    Validators.required,
-                    Validators.pattern(this.onlyNumbers)
-                ]
-            ],
-            phoneTwo: [
-                '',
-                [
-                    Validators.pattern(this.onlyNumbers)
-                ]
-            ],
-        })
+            },
+            { updateOn: 'blur' }
+        );
     }
 
 }
