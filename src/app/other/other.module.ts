@@ -24,6 +24,8 @@ import { TabsComponent } from './tabs/tabs.component';
 import { TabComponent } from './tab/tab.component';
 
 import { FormValidationPatternComponent } from './form-validation-pattern/form-validation-pattern.component';
+import { NavigationExtrasComponent } from './navigation-extras/navigation-extras.component';
+import { NavigationExtrasDestinationComponent } from './navigation-extras-destination/navigation-extras-destination.component';
 
 @NgModule({
     declarations: [
@@ -45,7 +47,9 @@ import { FormValidationPatternComponent } from './form-validation-pattern/form-v
         TabsComponent,
         TabComponent,
 
-        FormValidationPatternComponent
+        FormValidationPatternComponent,
+        NavigationExtrasComponent,
+        NavigationExtrasDestinationComponent
     ],
     imports: [
         CommonModule,

@@ -11,6 +11,8 @@ import { HostComponent } from './load-place-component/host/host.component';
 import { IndexIntoArrayObjectComponent } from './index-into-array-object/index-into-array-object.component';
 import { TabsPageComponent } from './tabs-page/tabs-page.component';
 import { FormValidationPatternComponent } from './form-validation-pattern/form-validation-pattern.component';
+import { NavigationExtrasComponent } from './navigation-extras/navigation-extras.component';
+import { NavigationExtrasDestinationComponent } from './navigation-extras-destination/navigation-extras-destination.component';
 
 const routes: Routes = [
     {
@@ -60,6 +62,14 @@ const routes: Routes = [
             {
                 path: 'form-validation-pattern',
                 component: FormValidationPatternComponent
+            },
+            {
+                path: 'navigation-extras',
+                component: NavigationExtrasComponent
+            },
+            {
+                path: 'navigation-extras-destination',
+                component: NavigationExtrasDestinationComponent
             }
         ]
     },
