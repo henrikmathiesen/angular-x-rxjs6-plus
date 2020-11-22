@@ -19,12 +19,7 @@ export class NavigationExtrasComponent implements OnInit {
     }
 
     goTo() {
-        console.log('ok');
-        // this.router.navigate(['../navigation-extras-destination'], { state });
-
-        // this.router.navigate(['/productdetails'], { 
-        //     state: { productdetails: objToSend }
-        //   });
+        this.router.navigate(['../navigation-extras-destination'], { state: this.model });
     }
 
 }
