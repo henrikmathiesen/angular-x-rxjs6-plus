@@ -6,7 +6,7 @@ import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 })
 export class TabComponent {
 
-    @ViewChild('tabHeader') tabHeader: ElementRef;
+    @ViewChild('tabHeader', { static: true }) tabHeader: ElementRef;
     @Input() header: string;
 
     id = '';

@@ -11,7 +11,7 @@ export class HostComponent {
     // https://angular.io/guide/dynamic-component-loader
     // OBS: add the factored components to entryComponents:[] in other.module
 
-    @ViewChild(HostAnchorDirective) hostAnchor: HostAnchorDirective;
+    @ViewChild(HostAnchorDirective, { static: true }) hostAnchor: HostAnchorDirective;
 
     constructor(
         private componentLoaderService: ComponentLoaderService
