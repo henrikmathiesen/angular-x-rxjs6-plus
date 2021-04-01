@@ -145,6 +145,8 @@ export class ManagingSubscriptionsWithObserversComponent implements OnInit, OnDe
 
     private intervalThatStopsAfterSeconds() {
 
+        // https://www.learnrxjs.io/learn-rxjs/operators/filtering/takeuntil#examples
+
         const times$ = interval(1000);
         const timer$ = timer(5000);
 
