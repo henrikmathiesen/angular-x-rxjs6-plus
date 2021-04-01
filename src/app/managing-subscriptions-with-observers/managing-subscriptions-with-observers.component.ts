@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observer, of, Observable, interval, Subscription } from 'rxjs';
+import { Observer, of, Observable, interval, Subscription, timer } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 // import { allBooks, allReaders } from '../data';
 
 @Component({
@@ -11,15 +12,17 @@ export class ManagingSubscriptionsWithObserversComponent implements OnInit, OnDe
 
     ngOnInit() {
         // Observer basics
-        this.observerObject();              // We can create an observer in 2 ways, 1
-        this.observerCallback();            // We can create an observer in 2 ways, 2
-        this.observerVsSubscriber();
+        // this.observerObject();              // We can create an observer in 2 ways, 1
+        // this.observerCallback();            // We can create an observer in 2 ways, 2
+        // this.observerVsSubscriber();
 
-        // Multiple Observers
-        this.multipleObservers();
+        // // Multiple Observers
+        // this.multipleObservers();
 
-        // Canceling with Unsubscribe
-        this.unsubscribe();
+        // // Canceling with Unsubscribe
+        // this.unsubscribe();
+
+        this.intervalThatStopsAfterSeconds();
     }
 
     ngOnDestroy() {
@@ -139,4 +142,18 @@ export class ManagingSubscriptionsWithObserversComponent implements OnInit, OnDe
     }
 
     // #endregion
+
+    private intervalThatStopsAfterSeconds() {
+
+        const times$ = interval(1000);
+        const timer$ = timer(5000);
+
+        const timesWithTimer$ = times$.pipe(takeUntil(timer$));
+
+        timesWithTimer$.subscribe(() => { 
+            console.log('lets do it for 5 seconds');
+        });
+
+
+    }
 }
