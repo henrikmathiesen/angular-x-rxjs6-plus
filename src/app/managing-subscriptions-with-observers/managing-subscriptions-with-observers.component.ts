@@ -12,15 +12,15 @@ export class ManagingSubscriptionsWithObserversComponent implements OnInit, OnDe
 
     ngOnInit() {
         // Observer basics
-        // this.observerObject();              // We can create an observer in 2 ways, 1
-        // this.observerCallback();            // We can create an observer in 2 ways, 2
-        // this.observerVsSubscriber();
+        this.observerObject();              // We can create an observer in 2 ways, 1
+        this.observerCallback();            // We can create an observer in 2 ways, 2
+        this.observerVsSubscriber();
 
-        // // Multiple Observers
-        // this.multipleObservers();
+        // Multiple Observers
+        this.multipleObservers();
 
-        // // Canceling with Unsubscribe
-        // this.unsubscribe();
+        // Canceling with Unsubscribe
+        this.unsubscribe();
 
         this.intervalThatStopsAfterSeconds();
     }
