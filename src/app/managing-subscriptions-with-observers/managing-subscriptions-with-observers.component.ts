@@ -152,8 +152,17 @@ export class ManagingSubscriptionsWithObserversComponent implements OnInit, OnDe
 
         const timesWithTimer$ = times$.pipe(takeUntil(timer$));
 
-        timesWithTimer$.subscribe(() => { 
-            console.log('lets do it for 5 seconds');
+        const sub = timesWithTimer$.subscribe((v) => {
+            console.log(v);
+
+            if (v == 2) {
+                console.log('==> 2');
+                sub.unsubscribe();          // A1) Unsubscribe
+            }
+
+        }, null, () => {
+            // A2) wont run if unsubscribe
+            console.log('complete');
         });
 
 
