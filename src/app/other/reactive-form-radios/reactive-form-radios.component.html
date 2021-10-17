@@ -1,1 +1,23 @@
 <h2>Reactive form radios</h2>
+
+<div>
+    <a href="https://www.wikipedia.org/">Navigate away</a>
+    <br><br><br>
+</div>
+
+<div>
+    <form [formGroup]="form">
+        <div>
+            <input type="radio" formControlName="food" value="beef"> Beef
+            <input type="radio" formControlName="food" value="lamb"> Lamb
+            <input type="radio" formControlName="food" value="fish"> Fish
+        </div>
+        <br>
+        <div>
+            <input type="text" formControlName="name" placeholder="Name">
+        </div>
+    </form>
+
+    <br><br><br>
+    <p>Form value: {{ form.value | json }}</p>
+</div>
