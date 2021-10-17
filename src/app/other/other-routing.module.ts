@@ -13,6 +13,7 @@ import { TabsPageComponent } from './tabs-page/tabs-page.component';
 import { FormValidationPatternComponent } from './form-validation-pattern/form-validation-pattern.component';
 import { NavigationExtrasComponent } from './navigation-extras/navigation-extras.component';
 import { NavigationExtrasDestinationComponent } from './navigation-extras-destination/navigation-extras-destination.component';
+import { ReactiveFormRadios } from './reactive-form-radios/reactive-form-radios.component';
 
 const routes: Routes = [
     {
@@ -70,6 +71,10 @@ const routes: Routes = [
             {
                 path: 'navigation-extras-destination',
                 component: NavigationExtrasDestinationComponent
+            },
+            {
+                path: 'reactive-form-radios',
+                component: ReactiveFormRadios
             }
         ]
     },

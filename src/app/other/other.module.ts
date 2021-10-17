@@ -26,6 +26,7 @@ import { TabComponent } from './tab/tab.component';
 import { FormValidationPatternComponent } from './form-validation-pattern/form-validation-pattern.component';
 import { NavigationExtrasComponent } from './navigation-extras/navigation-extras.component';
 import { NavigationExtrasDestinationComponent } from './navigation-extras-destination/navigation-extras-destination.component';
+import { ReactiveFormRadios } from './reactive-form-radios/reactive-form-radios.component';
 
 @NgModule({
     declarations: [
@@ -49,7 +50,9 @@ import { NavigationExtrasDestinationComponent } from './navigation-extras-destin
 
         FormValidationPatternComponent,
         NavigationExtrasComponent,
-        NavigationExtrasDestinationComponent
+        NavigationExtrasDestinationComponent,
+
+        ReactiveFormRadios
     ],
     imports: [
         CommonModule,
