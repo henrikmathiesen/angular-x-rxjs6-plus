@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { OtherModule } from './other/other.module';
@@ -13,6 +13,8 @@ import { ManagingSubscriptionsWithObserversComponent } from './managing-subscrip
 import { UsingOperatorsComponent } from './using-operators/using-operators.component';
 import { CreatingOurOwnOperatorsComponent } from './creating-our-own-operators/creating-our-own-operators.component';
 import { SubjectsAndMulticastedObservablesComponent } from './subjects-and-multicasted-observables/subjects-and-multicasted-observables.component';
+
+import { GlobalErrorHandler } from 'app/services';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,12 @@ import { SubjectsAndMulticastedObservablesComponent } from './subjects-and-multi
     OtherModule,
     AppRoutingModule,
 
+  ],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler
+    }
   ],
   bootstrap: [AppComponent]
 })

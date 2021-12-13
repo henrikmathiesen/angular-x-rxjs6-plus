@@ -16,10 +16,14 @@ export class CatchErrorTryAgainComponent {
         // This works. But it could be the case that a custom globalErrorHandler will handle the error
         // making the error callback NOT run (need to test that of course)
 
+        // UPDATE: error callback work like catch, so globalErrorHandler will NOT run           <=====
+        // BUT success callback is not run ...
+        // Success callback run with catch
+
         // ajax.getJSON(url)
         //     .subscribe(
         //         v => console.log('success', v),
-        //         e => this.tryAgainAfterCountDown()
+        //         e => console.log('error') // this.tryAgainAfterCountDown()
         //     );
 
         // For the reasons above, we are going to catch it here instead, so globalErrorHandler is NOT run
@@ -27,7 +31,8 @@ export class CatchErrorTryAgainComponent {
         ajax.getJSON(url)
             .pipe(
                 catchError(() => {
-                    this.tryAgainAfterCountDown();
+                    console.log('CATCH');
+                    // this.tryAgainAfterCountDown();
                     return of(null);
                 })
             )
